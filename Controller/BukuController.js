@@ -1,25 +1,36 @@
 const {buku} = require('../models');
 
 class BukuController{
-    static getData(req, res){
+    static async getBuku(req, res){
+        try{
+            let book = await buku.findAll();
+            res.json(book)
+
+        }
+        catch(err){
+            res.json(err)
+        }
+           
+
+        
 
     }
-    static readData(req, res){
+    static readBuku(req, res){
         
     }
-    static createData(req, res){
+    static createBuku(req, res){
         
     }
-    static addData(req, res){
+    static addBuku(req, res){
         
     }
     static updatepage(req, res){
         
     }
-    static updateData(req, res){
+    static updateBuku(req, res){
         
     }
-    static deleteData(req, res){
+    static deleteBuku(req, res){
         
     }
 

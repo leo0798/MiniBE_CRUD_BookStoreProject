@@ -1,25 +1,42 @@
-const {penjual} = require('../models');
+const {penjual,buku} = require('../models');
 
 class PenjualController{
-    static getData(req, res){
+    static async getPenjual(req, res){
+        try{
+            let penjuals = await penjual.findAll();
+            res.json(penjuals)
+        }
+        catch(err){
+            res.json(err)
+        }
 
     }
-    static readData(req, res){
+    static readPenjual(req, res){
         
     }
-    static createData(req, res){
+    static async createPenjual(req, res)  {
+        try{
+            const { nama,email,no_telepon,alamat,bukuId} = req.body;
+            let resultPenjual = await penjual.create({nama,email,no_telepon,alamat})
+            console.log(resultPenjual)
+
+            // res.json(resultPenjual)
+        }
+        catch(err){
+            res.json(err)
+        }
         
     }
-    static addData(req, res){
+    static addPenjual(req, res){
         
     }
     static updatepage(req, res){
         
     }
-    static updateData(req, res){
+    static updatePenjual(req, res){
         
     }
-    static deleteData(req, res){
+    static deletePenjual(req, res){
         
     }
 
